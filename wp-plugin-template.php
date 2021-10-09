@@ -1,11 +1,11 @@
 <?php
 /**
- * Plugin Name: Nhrrob Plugin
- * Description: A starter WordPress plugin
+ * Plugin Name: Wp Plugin Template
+ * Description: A basic WordPress plugin. Starter kit for plugin development.
  * Plugin URI: https://nazmulrobin.com
  * Author: Nazmul Hasan Robin
  * Author URI: https://nazmulrobin.com
- * Version: 1.0
+ * Version: 1.0.0
  * License: GPL2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
@@ -19,7 +19,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 /**
  * The main plugin class
  */
-final class Nhrrob_Plugin {
+final class Wp_Plugin_Template {
 
     /**
      * Plugin version
@@ -42,7 +42,7 @@ final class Nhrrob_Plugin {
     /**
      * Initialize a singleton instance
      *
-     * @return \Nhrrob_Plugin
+     * @return \Wp_Plugin_Template
      */
     public static function init() {
         static $instance = false;
@@ -60,11 +60,11 @@ final class Nhrrob_Plugin {
      * @return void
      */
     public function define_constants() {
-        define( 'NHRROB_PLUGIN_VERSION', self::version );
-        define( 'NHRROB_PLUGIN_FILE', __FILE__ );
-        define( 'NHRROB_PLUGIN_PATH', __DIR__ );
-        define( 'NHRROB_PLUGIN_URL', plugins_url( '', NHRROB_PLUGIN_FILE ) );
-        define( 'NHRROB_PLUGIN_ASSETS', NHRROB_PLUGIN_URL . '/assets' );
+        define( 'WP_PLUGIN_TEMPLATE_VERSION', self::version );
+        define( 'WP_PLUGIN_TEMPLATE_FILE', __FILE__ );
+        define( 'WP_PLUGIN_TEMPLATE_PATH', __DIR__ );
+        define( 'WP_PLUGIN_TEMPLATE_URL', plugins_url( '', WP_PLUGIN_TEMPLATE_FILE ) );
+        define( 'WP_PLUGIN_TEMPLATE_ASSETS', WP_PLUGIN_TEMPLATE_URL . '/assets' );
     }
 
     /**
@@ -74,19 +74,19 @@ final class Nhrrob_Plugin {
      */
     public function init_plugin() {
 
-        new Nhrrob\Plugin\Assets();
+        new Nhrrob\WpPluginTemplate\Assets();
 
         if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
-            new Nhrrob\Plugin\Ajax();
+            new Nhrrob\WpPluginTemplate\Ajax();
         }
 
         if ( is_admin() ) {
-            new Nhrrob\Plugin\Admin();
+            new Nhrrob\WpPluginTemplate\Admin();
         } else {
-            new Nhrrob\Plugin\Frontend();
+            new Nhrrob\WpPluginTemplate\Frontend();
         }
 
-        new Nhrrob\Plugin\API();
+        new Nhrrob\WpPluginTemplate\API();
     }
 
     /**
@@ -95,7 +95,7 @@ final class Nhrrob_Plugin {
      * @return void
      */
     public function activate() {
-        $installer = new Nhrrob\Plugin\Installer();
+        $installer = new Nhrrob\WpPluginTemplate\Installer();
         $installer->run();
     }
 }
@@ -103,11 +103,11 @@ final class Nhrrob_Plugin {
 /**
  * Initializes the main plugin
  *
- * @return \Nhrrob_Plugin
+ * @return \Wp_Plugin_Template
  */
-function nhrrob_plugin() {
-    return Nhrrob_Plugin::init();
+function wp_plugin_template() {
+    return Wp_Plugin_Template::init();
 }
 
 //call the plugin
-nhrrob_plugin();
+wp_plugin_template();

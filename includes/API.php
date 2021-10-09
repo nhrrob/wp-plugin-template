@@ -1,6 +1,6 @@
 <?php
 
-namespace Nhrrob\Plugin;
+namespace Nhrrob\WpPluginTemplate;
 
 /**
  * API Class
@@ -20,7 +20,6 @@ class API {
      * @return void
      */
     public function register_api() {
-        $resourcebook = new API\Resourcebook();
-        $resourcebook->register_routes();
+        //
     }
 }

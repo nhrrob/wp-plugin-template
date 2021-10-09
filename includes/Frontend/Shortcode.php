@@ -1,6 +1,6 @@
 <?php
 
-namespace Nhrrob\Plugin\Frontend;
+namespace Nhrrob\WpPluginTemplate\Frontend;
 
 /**
  * Shortcode handler class
@@ -8,10 +8,10 @@ namespace Nhrrob\Plugin\Frontend;
 class Shortcode {
 
     /**
-     * Initializes the class
+     * Initialize the class
      */
     function __construct() {
-        add_shortcode( 'nhrrob-plugin', [ $this, 'render_shortcode' ] );
+        add_shortcode( 'wp-plugin-template', [ $this, 'render_shortcode' ] );
     }
 
     /**
@@ -23,9 +23,9 @@ class Shortcode {
      * @return string
      */
     public function render_shortcode( $atts, $content = '' ) {
-        wp_enqueue_script( 'nhrrob-plugin-script' );
-        wp_enqueue_style( 'nhrrob-plugin-style' );
+        wp_enqueue_script( 'wp-plugin-template-script' );
+        wp_enqueue_style( 'wp-plugin-template-style' );
 
-        return '<div class="nhrrob-plugin-shortcode">Hello from Shortcode</div>';
+        return '<div class="wp-plugin-template-shortcode">Hello from Shortcode</div>';
     }
 }

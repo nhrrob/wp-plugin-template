@@ -1,6 +1,6 @@
 <?php
 
-namespace Nhrrob\Plugin;
+namespace Nhrrob\WpPluginTemplate;
 
 /**
  * The admin class
@@ -11,11 +11,8 @@ class Admin {
      * Initialize the class
      */
     function __construct() {
-        $resourcebook = new Admin\Resourcebook();
-
-        $this->dispatch_actions( $resourcebook );
-
-        new Admin\Menu( $resourcebook );
+        $this->dispatch_actions();
+        new Admin\Menu( );
     }
 
     /**
@@ -23,8 +20,7 @@ class Admin {
      *
      * @return void
      */
-    public function dispatch_actions( $resourcebook ) {
-        add_action( 'admin_init', [ $resourcebook, 'form_handler' ] );
-        add_action( 'admin_post_nhrrob-plugin-delete-resource', [ $resourcebook, 'delete_resource' ] );
+    public function dispatch_actions( ) {
+        //
     }
 }

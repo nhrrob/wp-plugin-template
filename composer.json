@@ -1,6 +1,6 @@
 {
     "name": "nhrrob/wp-plugin-template",
-    "description": "A basic WordPress plugin. Starter kit for plugin development",
+    "description": "A basic WordPress plugin. Starter kit for plugin development.",
     "type": "wordpress-plugin",
     "license": "GPLv2",
     "authors": [

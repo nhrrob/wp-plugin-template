@@ -1,6 +1,6 @@
 <?php
 
-namespace Nhrrob\Plugin;
+namespace Nhrrob\WpPluginTemplate;
 
 /**
  * Frontend handler class
@@ -12,6 +12,5 @@ class Frontend {
      */
     function __construct() {
         new Frontend\Shortcode();
-        new Frontend\Enquiry();
     }
 }

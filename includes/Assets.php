@@ -1,9 +1,9 @@
 <?php
 
-namespace Nhrrob\Plugin;
+namespace Nhrrob\WpPluginTemplate;
 
 /**
- * Assets handlers class
+ * Assets handler class
  */
 class Assets {
 
@@ -22,19 +22,14 @@ class Assets {
      */
     public function get_scripts() {
         return [
-            'nhrrob-plugin-script' => [
-                'src'     => NHRROB_PLUGIN_ASSETS . '/js/frontend.js',
-                'version' => filemtime( NHRROB_PLUGIN_PATH . '/assets/js/frontend.js' ),
+            'wp-plugin-template-script' => [
+                'src'     => WP_PLUGIN_TEMPLATE_ASSETS . '/js/frontend.js',
+                'version' => filemtime( WP_PLUGIN_TEMPLATE_PATH . '/assets/js/frontend.js' ),
                 'deps'    => [ 'jquery' ]
             ],
-            'nhrrob-plugin-enquiry-script' => [
-                'src'     => NHRROB_PLUGIN_ASSETS . '/js/enquiry.js',
-                'version' => filemtime( NHRROB_PLUGIN_PATH . '/assets/js/enquiry.js' ),
-                'deps'    => [ 'jquery' ]
-            ],
-            'nhrrob-plugin-admin-script' => [
-                'src'     => NHRROB_PLUGIN_ASSETS . '/js/admin.js',
-                'version' => filemtime( NHRROB_PLUGIN_PATH . '/assets/js/admin.js' ),
+            'wp-plugin-template-admin-script' => [
+                'src'     => WP_PLUGIN_TEMPLATE_ASSETS . '/js/admin.js',
+                'version' => filemtime( WP_PLUGIN_TEMPLATE_PATH . '/assets/js/admin.js' ),
                 'deps'    => [ 'jquery', 'wp-util' ]
             ],
         ];
@@ -47,17 +42,13 @@ class Assets {
      */
     public function get_styles() {
         return [
-            'nhrrob-plugin-style' => [
-                'src'     => NHRROB_PLUGIN_ASSETS . '/css/frontend.css',
-                'version' => filemtime( NHRROB_PLUGIN_PATH . '/assets/css/frontend.css' )
+            'wp-plugin-template-style' => [
+                'src'     => WP_PLUGIN_TEMPLATE_ASSETS . '/css/frontend.css',
+                'version' => filemtime( WP_PLUGIN_TEMPLATE_PATH . '/assets/css/frontend.css' )
             ],
-            'nhrrob-plugin-admin-style' => [
-                'src'     => NHRROB_PLUGIN_ASSETS . '/css/admin.css',
-                'version' => filemtime( NHRROB_PLUGIN_PATH . '/assets/css/admin.css' )
-            ],
-            'nhrrob-plugin-enquiry-style' => [
-                'src'     => NHRROB_PLUGIN_ASSETS . '/css/enquiry.css',
-                'version' => filemtime( NHRROB_PLUGIN_PATH . '/assets/css/enquiry.css' )
+            'wp-plugin-template-admin-style' => [
+                'src'     => WP_PLUGIN_TEMPLATE_ASSETS . '/css/admin.css',
+                'version' => filemtime( WP_PLUGIN_TEMPLATE_PATH . '/assets/css/admin.css' )
             ],
         ];
     }
@@ -83,15 +74,10 @@ class Assets {
             wp_register_style( $handle, $style['src'], $deps, $style['version'] );
         }
 
-        wp_localize_script( 'nhrrob-plugin-enquiry-script', 'nhrrobPlugin', [
-            'ajaxurl' => admin_url( 'admin-ajax.php' ),
-            'error'   => __( 'Something went wrong', 'nhrrob-plugin' ),
-        ] );
-
-        wp_localize_script( 'nhrrob-plugin-admin-script', 'nhrrobPlugin', [
-            'nonce' => wp_create_nonce( 'nhrrob-plugin-admin-nonce' ),
-            'confirm' => __( 'Are you sure?', 'nhrrob-plugin' ),
-            'error' => __( 'Something went wrong', 'nhrrob-plugin' ),
+        wp_localize_script( 'wp-plugin-template-admin-script', 'wpPluginTemplate', [
+            'nonce' => wp_create_nonce( 'wp-plugin-template-admin-nonce' ),
+            'confirm' => __( 'Are you sure?', 'wp-plugin-template' ),
+            'error' => __( 'Something went wrong', 'wp-plugin-template' ),
         ] );
     }
 }
