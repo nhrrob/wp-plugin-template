@@ -1,6 +1,6 @@
 <?php
 
-namespace Nhrrob\WpPluginTemplate;
+namespace Reslab\ReslabMatchingForm;
 
 /**
  * Assets handler class
@@ -22,14 +22,14 @@ class Assets {
      */
     public function get_scripts() {
         return [
-            'wp-plugin-template-script' => [
-                'src'     => WP_PLUGIN_TEMPLATE_ASSETS . '/js/frontend.js',
-                'version' => filemtime( WP_PLUGIN_TEMPLATE_PATH . '/assets/js/frontend.js' ),
+            'reslab-matching-form-script' => [
+                'src'     => RESLAB_MATCHING_FORM_ASSETS . '/js/frontend.js',
+                'version' => filemtime( RESLAB_MATCHING_FORM_PATH . '/assets/js/frontend.js' ),
                 'deps'    => [ 'jquery' ]
             ],
-            'wp-plugin-template-admin-script' => [
-                'src'     => WP_PLUGIN_TEMPLATE_ASSETS . '/js/admin.js',
-                'version' => filemtime( WP_PLUGIN_TEMPLATE_PATH . '/assets/js/admin.js' ),
+            'reslab-matching-form-admin-script' => [
+                'src'     => RESLAB_MATCHING_FORM_ASSETS . '/js/admin.js',
+                'version' => filemtime( RESLAB_MATCHING_FORM_PATH . '/assets/js/admin.js' ),
                 'deps'    => [ 'jquery', 'wp-util' ]
             ],
         ];
@@ -42,13 +42,13 @@ class Assets {
      */
     public function get_styles() {
         return [
-            'wp-plugin-template-style' => [
-                'src'     => WP_PLUGIN_TEMPLATE_ASSETS . '/css/frontend.css',
-                'version' => filemtime( WP_PLUGIN_TEMPLATE_PATH . '/assets/css/frontend.css' )
+            'reslab-matching-form-style' => [
+                'src'     => RESLAB_MATCHING_FORM_ASSETS . '/css/frontend.css',
+                'version' => filemtime( RESLAB_MATCHING_FORM_PATH . '/assets/css/frontend.css' )
             ],
-            'wp-plugin-template-admin-style' => [
-                'src'     => WP_PLUGIN_TEMPLATE_ASSETS . '/css/admin.css',
-                'version' => filemtime( WP_PLUGIN_TEMPLATE_PATH . '/assets/css/admin.css' )
+            'reslab-matching-form-admin-style' => [
+                'src'     => RESLAB_MATCHING_FORM_ASSETS . '/css/admin.css',
+                'version' => filemtime( RESLAB_MATCHING_FORM_PATH . '/assets/css/admin.css' )
             ],
         ];
     }
@@ -74,10 +74,10 @@ class Assets {
             wp_register_style( $handle, $style['src'], $deps, $style['version'] );
         }
 
-        wp_localize_script( 'wp-plugin-template-admin-script', 'wpPluginTemplate', [
-            'nonce' => wp_create_nonce( 'wp-plugin-template-admin-nonce' ),
-            'confirm' => __( 'Are you sure?', 'wp-plugin-template' ),
-            'error' => __( 'Something went wrong', 'wp-plugin-template' ),
+        wp_localize_script( 'reslab-matching-form-admin-script', 'reslabMatchingForm', [
+            'nonce' => wp_create_nonce( 'reslab-matching-form-admin-nonce' ),
+            'confirm' => __( 'Are you sure?', 'reslab-matching-form' ),
+            'error' => __( 'Something went wrong', 'reslab-matching-form' ),
         ] );
     }
 }

@@ -1,19 +1,19 @@
 {
-    "name": "nhrrob/wp-plugin-template",
-    "description": "A basic WordPress plugin. Starter kit for plugin development.",
+    "name": "reslab/reslab-matching-form",
+    "description": "Therapists selection Quiz. Provides a form for the user to submit and then automatically matches therapists based on the answers.",
     "type": "wordpress-plugin",
     "license": "GPLv2",
     "authors": [
         {
-            "name": "Nazmul Hasan Robin",
-            "email": "robin@nazmulrobin.com"
+            "name": "Reslab",
+            "email": "admin@admin.com"
         }
     ],
     "minimum-stability": "dev",
     "require": {},
     "autoload": {
         "psr-4": {
-            "Nhrrob\\WpPluginTemplate\\": "includes/"
+            "Reslab\\ReslabMatchingForm\\": "includes/"
         },
         "files": [ "includes/functions.php" ]
     }

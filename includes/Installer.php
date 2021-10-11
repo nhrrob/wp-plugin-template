@@ -1,6 +1,6 @@
 <?php
 
-namespace Nhrrob\WpPluginTemplate;
+namespace Reslab\ReslabMatchingForm;
 
 /**
  * Installer class
@@ -21,13 +21,13 @@ class Installer {
      * Add time and version on DB
      */
     public function add_version() {
-        $installed = get_option( 'wp_plugin_template_installed' );
+        $installed = get_option( 'reslab_matching_form_installed' );
 
         if ( ! $installed ) {
-            update_option( 'wp_plugin_template_installed', time() );
+            update_option( 'reslab_matching_form_installed', time() );
         }
 
-        update_option( 'wp_plugin_template_version', WP_PLUGIN_TEMPLATE_VERSION );
+        update_option( 'reslab_matching_form_version', RESLAB_MATCHING_FORM_VERSION );
     }
 
     /**

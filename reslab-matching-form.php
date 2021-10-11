@@ -1,10 +1,10 @@
 <?php
 /**
- * Plugin Name: Wp Plugin Template
- * Description: A basic WordPress plugin. Starter kit for plugin development.
- * Plugin URI: https://nazmulrobin.com
- * Author: Nazmul Hasan Robin
- * Author URI: https://nazmulrobin.com
+ * Plugin Name: Reslab Matching Form
+ * Description: Therapists selection Quiz. Provides a form for the user to submit and then automatically matches therapists based on the answers.
+ * Plugin URI: https://www.resiliencelab.us/
+ * Author: Reslab Matching Form
+ * Author URI: https://www.resiliencelab.us/
  * Version: 1.0.0
  * License: GPL2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -19,7 +19,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 /**
  * The main plugin class
  */
-final class Wp_Plugin_Template {
+final class Reslab_Matching_Form {
 
     /**
      * Plugin version
@@ -42,7 +42,7 @@ final class Wp_Plugin_Template {
     /**
      * Initialize a singleton instance
      *
-     * @return \Wp_Plugin_Template
+     * @return \Reslab_Matching_Form
      */
     public static function init() {
         static $instance = false;
@@ -60,11 +60,11 @@ final class Wp_Plugin_Template {
      * @return void
      */
     public function define_constants() {
-        define( 'WP_PLUGIN_TEMPLATE_VERSION', self::version );
-        define( 'WP_PLUGIN_TEMPLATE_FILE', __FILE__ );
-        define( 'WP_PLUGIN_TEMPLATE_PATH', __DIR__ );
-        define( 'WP_PLUGIN_TEMPLATE_URL', plugins_url( '', WP_PLUGIN_TEMPLATE_FILE ) );
-        define( 'WP_PLUGIN_TEMPLATE_ASSETS', WP_PLUGIN_TEMPLATE_URL . '/assets' );
+        define( 'RESLAB_MATCHING_FORM_VERSION', self::version );
+        define( 'RESLAB_MATCHING_FORM_FILE', __FILE__ );
+        define( 'RESLAB_MATCHING_FORM_PATH', __DIR__ );
+        define( 'RESLAB_MATCHING_FORM_URL', plugins_url( '', RESLAB_MATCHING_FORM_FILE ) );
+        define( 'RESLAB_MATCHING_FORM_ASSETS', RESLAB_MATCHING_FORM_URL . '/assets' );
     }
 
     /**
@@ -74,19 +74,19 @@ final class Wp_Plugin_Template {
      */
     public function init_plugin() {
 
-        new Nhrrob\WpPluginTemplate\Assets();
+        new Reslab\ReslabMatchingForm\Assets();
 
         if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
-            new Nhrrob\WpPluginTemplate\Ajax();
+            new Reslab\ReslabMatchingForm\Ajax();
         }
 
         if ( is_admin() ) {
-            new Nhrrob\WpPluginTemplate\Admin();
+            new Reslab\ReslabMatchingForm\Admin();
         } else {
-            new Nhrrob\WpPluginTemplate\Frontend();
+            new Reslab\ReslabMatchingForm\Frontend();
         }
 
-        new Nhrrob\WpPluginTemplate\API();
+        new Reslab\ReslabMatchingForm\API();
     }
 
     /**
@@ -95,7 +95,7 @@ final class Wp_Plugin_Template {
      * @return void
      */
     public function activate() {
-        $installer = new Nhrrob\WpPluginTemplate\Installer();
+        $installer = new Reslab\ReslabMatchingForm\Installer();
         $installer->run();
     }
 }
@@ -103,11 +103,11 @@ final class Wp_Plugin_Template {
 /**
  * Initializes the main plugin
  *
- * @return \Wp_Plugin_Template
+ * @return \Reslab_Matching_Form
  */
-function wp_plugin_template() {
-    return Wp_Plugin_Template::init();
+function reslab_matching_form() {
+    return Reslab_Matching_Form::init();
 }
 
 //call the plugin
-wp_plugin_template();
+reslab_matching_form();

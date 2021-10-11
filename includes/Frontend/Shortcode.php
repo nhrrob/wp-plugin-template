@@ -1,6 +1,6 @@
 <?php
 
-namespace Nhrrob\WpPluginTemplate\Frontend;
+namespace Reslab\ReslabMatchingForm\Frontend;
 
 /**
  * Shortcode handler class
@@ -11,7 +11,7 @@ class Shortcode {
      * Initialize the class
      */
     function __construct() {
-        add_shortcode( 'wp-plugin-template', [ $this, 'render_shortcode' ] );
+        add_shortcode( 'reslab-matching-form', [ $this, 'render_shortcode' ] );
     }
 
     /**
@@ -23,9 +23,9 @@ class Shortcode {
      * @return string
      */
     public function render_shortcode( $atts, $content = '' ) {
-        wp_enqueue_script( 'wp-plugin-template-script' );
-        wp_enqueue_style( 'wp-plugin-template-style' );
+        wp_enqueue_script( 'reslab-matching-form-script' );
+        wp_enqueue_style( 'reslab-matching-form-style' );
 
-        return '<div class="wp-plugin-template-shortcode">Hello from Shortcode</div>';
+        return '<div class="reslab-matching-form-shortcode">Hello from Shortcode</div>';
     }
 }

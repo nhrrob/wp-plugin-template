@@ -1,6 +1,6 @@
 <?php
 
-namespace Nhrrob\WpPluginTemplate;
+namespace Reslab\ReslabMatchingForm;
 
 /**
  * Ajax handler class
