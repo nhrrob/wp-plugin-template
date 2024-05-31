@@ -1,10 +1,10 @@
 <?php
 /**
- * Plugin Name: Reslab Matching Form
- * Description: Therapists selection Quiz. Provides a form for the user to submit and then automatically matches therapists based on the answers.
- * Plugin URI: https://www.resiliencelab.us/
- * Author: Reslab Matching Form
- * Author URI: https://www.resiliencelab.us/
+ * Plugin Name: Sample Plugin
+ * Description: This is a sample plugin. Feel free to use as template.
+ * Plugin URI: https://www.example.com/
+ * Author: Plugin Author
+ * Author URI: https://www.example.com/
  * Version: 1.0.0
  * License: GPL2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -19,7 +19,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 /**
  * The main plugin class
  */
-final class Reslab_Matching_Form {
+final class Sample_Plugin {
 
     /**
      * Plugin version
@@ -42,7 +42,7 @@ final class Reslab_Matching_Form {
     /**
      * Initialize a singleton instance
      *
-     * @return \Reslab_Matching_Form
+     * @return \Sample_Plugin
      */
     public static function init() {
         static $instance = false;
@@ -60,11 +60,11 @@ final class Reslab_Matching_Form {
      * @return void
      */
     public function define_constants() {
-        define( 'RESLAB_MATCHING_FORM_VERSION', self::version );
-        define( 'RESLAB_MATCHING_FORM_FILE', __FILE__ );
-        define( 'RESLAB_MATCHING_FORM_PATH', __DIR__ );
-        define( 'RESLAB_MATCHING_FORM_URL', plugins_url( '', RESLAB_MATCHING_FORM_FILE ) );
-        define( 'RESLAB_MATCHING_FORM_ASSETS', RESLAB_MATCHING_FORM_URL . '/assets' );
+        define( 'SAMPLE_PLUGIN_VERSION', self::version );
+        define( 'SAMPLE_PLUGIN_FILE', __FILE__ );
+        define( 'SAMPLE_PLUGIN_PATH', __DIR__ );
+        define( 'SAMPLE_PLUGIN_URL', plugins_url( '', SAMPLE_PLUGIN_FILE ) );
+        define( 'SAMPLE_PLUGIN_ASSETS', SAMPLE_PLUGIN_URL . '/assets' );
     }
 
     /**
@@ -74,19 +74,19 @@ final class Reslab_Matching_Form {
      */
     public function init_plugin() {
 
-        new Reslab\ReslabMatchingForm\Assets();
+        new SamplePlugin\Assets();
 
         if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
-            new Reslab\ReslabMatchingForm\Ajax();
+            new SamplePlugin\Ajax();
         }
 
         if ( is_admin() ) {
-            new Reslab\ReslabMatchingForm\Admin();
+            new SamplePlugin\Admin();
         } else {
-            new Reslab\ReslabMatchingForm\Frontend();
+            new SamplePlugin\Frontend();
         }
 
-        new Reslab\ReslabMatchingForm\API();
+        new SamplePlugin\API();
     }
 
     /**
@@ -95,7 +95,7 @@ final class Reslab_Matching_Form {
      * @return void
      */
     public function activate() {
-        $installer = new Reslab\ReslabMatchingForm\Installer();
+        $installer = new SamplePlugin\Installer();
         $installer->run();
     }
 }
@@ -103,11 +103,11 @@ final class Reslab_Matching_Form {
 /**
  * Initializes the main plugin
  *
- * @return \Reslab_Matching_Form
+ * @return \Sample_Plugin
  */
-function reslab_matching_form() {
-    return Reslab_Matching_Form::init();
+function sample_plugin() {
+    return Sample_Plugin::init();
 }
 
 //call the plugin
-reslab_matching_form();
+sample_plugin();

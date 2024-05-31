@@ -1,19 +1,19 @@
 {
-    "name": "reslab/reslab-matching-form",
-    "description": "Therapists selection Quiz. Provides a form for the user to submit and then automatically matches therapists based on the answers.",
+    "name": "vendor-name/sample-plugin",
+    "description": "This is a sample plugin. Feel free to use as template.",
     "type": "wordpress-plugin",
     "license": "GPLv2",
     "authors": [
         {
-            "name": "Reslab",
-            "email": "admin@admin.com"
+            "name": "Author Name",
+            "email": "admin@example.com"
         }
     ],
     "minimum-stability": "dev",
     "require": {},
     "autoload": {
         "psr-4": {
-            "Reslab\\ReslabMatchingForm\\": "includes/"
+            "SamplePlugin\\": "includes/"
         },
         "files": [ "includes/functions.php" ]
     }

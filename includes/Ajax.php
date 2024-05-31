@@ -1,6 +1,6 @@
 <?php
 
-namespace Reslab\ReslabMatchingForm;
+namespace SamplePlugin;
 
 /**
  * Ajax handler class

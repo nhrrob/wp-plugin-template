@@ -1,6 +1,6 @@
 <?php
 
-namespace Reslab\ReslabMatchingForm;
+namespace SamplePlugin;
 
 /**
  * Installer class
@@ -21,13 +21,13 @@ class Installer {
      * Add time and version on DB
      */
     public function add_version() {
-        $installed = get_option( 'reslab_matching_form_installed' );
+        $installed = get_option( 'sample_plugin_installed' );
 
         if ( ! $installed ) {
-            update_option( 'reslab_matching_form_installed', time() );
+            update_option( 'sample_plugin_installed', time() );
         }
 
-        update_option( 'reslab_matching_form_version', RESLAB_MATCHING_FORM_VERSION );
+        update_option( 'sample_plugin_version', SAMPLE_PLUGIN_VERSION );
     }
 
     /**
