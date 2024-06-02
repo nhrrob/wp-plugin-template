@@ -1,2 +1,2 @@
-# wp-plugin-template
+# sample-plugin
 
